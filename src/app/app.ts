@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { RouterOutlet } from '@angular/router';
+import { ThemeService } from './core/theme/theme.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'sc-root',
   imports: [RouterOutlet, MatSlideToggle],
   templateUrl: './app.html',
 })
 export class App {
-  handleDarkModeToggle() {
-    document.documentElement.classList.toggle('dark-theme');
+  private readonly themeService = inject<ThemeService>(ThemeService);
+
+  handleDarkModeToggle(): void {
+    this.themeService.toggle();
   }
 }
