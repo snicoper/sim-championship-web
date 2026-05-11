@@ -7,4 +7,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet, MatSlideToggle],
   templateUrl: './app.html',
 })
-export class App {}
+export class App {
+  handleDarkModeToggle() {
+    document.documentElement.classList.toggle('dark-theme');
+  }
+}
