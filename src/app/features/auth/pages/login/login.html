@@ -26,6 +26,14 @@
           [formIconPosition]="iconPositions.suffix"
         />
 
+        <div class="login-links">
+          <a routerLink="/forgot-password">Forgot password?</a>
+
+          <span class="spacer"></span>
+
+          <a routerLink="/register">Create account</a>
+        </div>
+
         <vrm-non-field-errors [formState]="formState" />
 
         <button mat-flat-button type="submit">Sign in</button>

@@ -12,6 +12,10 @@ body {
   flex: 1 1 auto;
 }
 
+.separator {
+  opacity: 0.5;
+}
+
 /** Importante, para ocultar los permisos en los directivas. */
 .hidden {
   display: none !important;
@@ -19,6 +23,19 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+/***************
+ * Links.
+ */
+a {
+  color: var(--mat-sys-primary);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /***************
