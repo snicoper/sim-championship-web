@@ -12,7 +12,7 @@ export class NonFieldErrors {
   readonly formState = input.required<FormState>();
 
   protected errorMessage(): string | null {
-    const error = this.formState().apiError;
+    const error = this.formState().problemDetails;
 
     if (!error || error.status !== HttpStatusCode.Conflict) {
       return null;

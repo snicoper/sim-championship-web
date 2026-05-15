@@ -69,7 +69,7 @@ export class FormInput implements ControlValueAccessor {
   }
 
   private clearFieldApiError(): void {
-    const errors = this.formState().apiError?.errors;
+    const errors = this.formState().problemDetails?.errors;
 
     if (!errors?.[this.fieldName()]) {
       return;

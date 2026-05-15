@@ -27,11 +27,11 @@ export class FieldError {
   }
 
   private getApiErrors(): string[] {
-    if (this.formState().apiError?.status !== HttpStatusCode.BadRequest) {
+    if (this.formState().problemDetails?.status !== HttpStatusCode.BadRequest) {
       return [];
     }
 
-    return this.formState().apiError?.errors?.[this.fieldName()] ?? [];
+    return this.formState().problemDetails?.errors?.[this.fieldName()] ?? [];
   }
 
   private shouldShowErrors(control: AbstractControl, apiErrors: string[]): boolean {

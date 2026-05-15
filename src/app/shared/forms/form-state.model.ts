@@ -1,9 +1,9 @@
 import { FormGroup } from '@angular/forms';
-import { ApiError } from '../../core/http/api-error.model';
+import { ProblemDetailsResponse } from '../../core/http/problem-detailt.response';
 
 export interface FormState<TForm extends FormGroup = FormGroup> {
   form: TForm;
-  apiError?: ApiError;
+  problemDetails?: ProblemDetailsResponse;
   isSubmitted: boolean;
   isLoading: boolean;
 }

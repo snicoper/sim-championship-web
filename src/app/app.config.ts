@@ -9,12 +9,12 @@ import { provideLuxonDateAdapter } from '@angular/material-luxon-adapter';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { provideRouter } from '@angular/router';
 
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { AppInitializer } from './core/config/app-initializer';
 import { CustomErrorHandler } from './core/errors/custom-error-handler';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { apiErrorInterceptor } from './core/interceptors/api-error.interceptor';
-import { apiInterceptor } from './core/interceptors/api.interceptor';
+import { apiErrorInterceptor } from './core/http/api-error.interceptor';
+import { apiInterceptor } from './core/http/api.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
