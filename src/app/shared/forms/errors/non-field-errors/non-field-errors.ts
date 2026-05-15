@@ -1,26 +1,23 @@
-import { Component, computed, input } from '@angular/core';
-import { MatError } from '@angular/material/form-field';
-import { FormState } from '../field-error/form-state.model';
+import { HttpStatusCode } from '@angular/common/http';
+import { Component, input } from '@angular/core';
+import { FormState } from '../../form-state.model';
 
 @Component({
   selector: 'vrm-non-field-errors',
-  imports: [MatError],
+  imports: [],
   templateUrl: './non-field-errors.html',
+  styleUrl: './non-field-errors.scss',
 })
 export class NonFieldErrors {
   readonly formState = input.required<FormState>();
 
-  protected readonly errorMessage = computed(() => {
+  protected errorMessage(): string | null {
     const error = this.formState().badRequest;
 
-    if (!error) {
-      return null;
-    }
-
-    if (error.errors && Object.keys(error.errors).length > 0) {
+    if (!error || error.status !== HttpStatusCode.Conflict) {
       return null;
     }
 
     return error.detail ?? error.title ?? null;
-  });
+  }
 }

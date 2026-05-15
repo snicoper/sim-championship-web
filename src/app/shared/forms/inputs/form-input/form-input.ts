@@ -5,8 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FieldError } from '../../errors/field-error/field-error';
-import { FormState } from '../../errors/field-error/form-state.model';
-import { FormIconPosition } from '../../types/form-icon-position.enum';
+import { FormIconPosition } from '../../form-icon-position.enum';
+import { FormState } from '../../form-state.model';
 import { FormInputType } from './form-input.type';
 
 @Component({

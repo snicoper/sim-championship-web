@@ -1,6 +1,7 @@
+import { HttpStatusCode } from '@angular/common/http';
 import { Component, input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-import { FormState } from './form-state.model';
+import { FormState } from '../../form-state.model';
 
 @Component({
   selector: 'vrm-field-error',
@@ -26,6 +27,10 @@ export class FieldError {
   }
 
   private getBadRequestErrors(): string[] {
+    if (this.formState().badRequest?.status !== HttpStatusCode.BadRequest) {
+      return [];
+    }
+
     return this.formState().badRequest?.errors?.[this.fieldName()] ?? [];
   }
 

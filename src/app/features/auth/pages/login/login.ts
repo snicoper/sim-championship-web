@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { FormState } from '../../../../shared/forms/errors/field-error/form-state.model';
+import { AppEnvironment } from '../../../../core/config/app-environment';
 import { NonFieldErrors } from '../../../../shared/forms/errors/non-field-errors/non-field-errors';
+import { FormIconPosition } from '../../../../shared/forms/form-icon-position.enum';
+import { FormState } from '../../../../shared/forms/form-state.model';
 import { FormInput } from '../../../../shared/forms/inputs/form-input/form-input';
 import { FormInputType } from '../../../../shared/forms/inputs/form-input/form-input.type';
-import { FormIconPosition } from '../../../../shared/forms/types/form-icon-position.enum';
 
 @Component({
   selector: 'vrm-login',
@@ -20,6 +21,7 @@ export class Login implements OnInit {
 
   protected readonly formInputTypes = FormInputType;
   protected readonly iconPositions = FormIconPosition;
+  protected readonly siteName = AppEnvironment.SiteName;
 
   readonly formState: FormState = {
     form: this.fb.group({}),
@@ -44,8 +46,8 @@ export class Login implements OnInit {
     // prueba backend 400
     this.formState.badRequest = {
       title: 'Bad Request',
-      detail: 'Validation failed',
-      status: 400,
+      detail: 'Username or password is incorrect',
+      status: 409,
       type: 'https://tools.ietf.org/html/rfc7231#section-6.5.1',
       code: 'validation_failed',
       errors: {
