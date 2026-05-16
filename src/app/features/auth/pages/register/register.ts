@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { RouterLink } from '@angular/router';
 import { finalize } from 'rxjs';
 import { AppEnvironment } from '../../../../core/config/app-environment';
 import { SiteUrls } from '../../../../core/navigation/site-urls';
@@ -17,7 +18,7 @@ import { AuthApiService } from '../../services/auth-api.service';
 
 @Component({
   selector: 'vrm-register',
-  imports: [ReactiveFormsModule, MatCardModule, NonFieldErrors, FormInput, BtnLoading],
+  imports: [ReactiveFormsModule, RouterLink, MatCardModule, NonFieldErrors, FormInput, BtnLoading],
   templateUrl: './register.html',
   styleUrl: './register.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

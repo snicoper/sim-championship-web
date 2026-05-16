@@ -61,7 +61,7 @@ export class Login implements OnInit {
     }
 
     this.formState.isLoading.set(true);
-    const loginRequest: LoginRequest = this.formState.form.value;
+    const loginRequest: LoginRequest = this.formState.form.getRawValue();
 
     this.authService
       .login(loginRequest)

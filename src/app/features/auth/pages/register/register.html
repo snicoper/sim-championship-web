@@ -38,6 +38,12 @@
           [formIconPosition]="iconPositions.suffix"
         />
 
+        <div class="login-links">
+          <a [routerLink]="[siteUrls.auth.login]">Already have an account? Log in</a>
+
+          <span class="spacer"></span>
+        </div>
+
         <vrm-btn-loading
           styles="full-width mt-4"
           btnText="Create account"
