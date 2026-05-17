@@ -13,8 +13,8 @@ import { FormState } from '../../../../shared/forms/form-state.model';
 import { FormInput } from '../../../../shared/forms/inputs/form-input/form-input';
 import { FormInputType } from '../../../../shared/forms/inputs/form-input/form-input.type';
 import { passwordMustMatchValidator } from '../../../../shared/forms/validators/password-must-match.validator';
-import { RegisterRequest } from '../../contracts/requests/register.request';
 import { AuthApiService } from '../../services/auth-api.service';
+import { RegisterRequest } from './register.request';
 
 @Component({
   selector: 'vrm-register',

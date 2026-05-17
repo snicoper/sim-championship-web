@@ -4,10 +4,10 @@ import { ApiBaseService } from '../../../core/http/api-base.service';
 import { NoContent } from '../../../core/http/no-content.type';
 import { ApiUrls } from '../../../core/navigation/api-urls';
 import { buildApiUrl } from '../../../core/navigation/url.utils';
-import { RegisterRequest } from '../contracts/requests/register.request';
-import { VerifyEmailRequest } from '../contracts/requests/verify-email.request';
-import { RegisterResponse } from '../contracts/responses/register.response';
+import { RegisterRequest } from '../pages/register/register.request';
+import { RegisterResponse } from '../pages/register/register.response';
 import { ResendVerifyEmail } from '../pages/resend-verify-email/resend-verify-email';
+import { VerifyEmailRequest } from '../pages/verify-email/verify-email.request';
 
 @Injectable({
   providedIn: 'root',

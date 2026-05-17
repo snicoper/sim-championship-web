@@ -63,6 +63,7 @@ export class Login implements OnInit {
   }
 
   protected handleSubmit(): void {
+    this.formState.problemDetails.set(null);
     this.formState.isSubmitted.set(true);
 
     if (this.formState.form.invalid) {
