@@ -15,7 +15,7 @@ export class FieldError {
 
   readonly formState = input.required<FormState>();
   readonly fieldName = input.required<string>();
-  readonly labelKey = input('');
+  readonly labelKey = input.required<string>();
   readonly validateOnlyOnSubmit = input(false);
 
   protected errorMessage(): string | null {
@@ -34,7 +34,11 @@ export class FieldError {
       return [];
     }
 
-    return this.formState().problemDetails()?.errors?.[this.fieldName()] ?? [];
+    return (
+      this.formState()
+        .problemDetails()
+        ?.errors?.[this.fieldName()]?.map((error) => this.translate.instant(error)) ?? []
+    );
   }
 
   private shouldShowErrors(control: AbstractControl, apiErrors: string[]): boolean {

@@ -1,5 +1,6 @@
 import { HttpStatusCode } from '@angular/common/http';
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Alert } from '../../../components/alert/alert';
 import { FormState } from '../../form-state.model';
 
@@ -10,6 +11,8 @@ import { FormState } from '../../form-state.model';
   styleUrl: './non-field-errors.scss',
 })
 export class NonFieldErrors {
+  private readonly translate = inject(TranslateService);
+
   readonly formState = input.required<FormState>();
 
   protected errorMessage(): string | null {
@@ -17,6 +20,10 @@ export class NonFieldErrors {
 
     if (!error || error.status !== HttpStatusCode.Conflict) {
       return null;
+    }
+
+    if (error.code) {
+      return this.translate.instant(error.code);
     }
 
     return error.detail ?? error.title ?? null;
