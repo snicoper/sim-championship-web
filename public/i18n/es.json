@@ -45,5 +45,11 @@
       "errorMessage": "The verification token is invalid or has expired.",
       "resendEmail": "Resend Verification Email"
     }
+  },
+  "validation": {
+    "required": "{{field}} is required",
+    "email": "{{field}} is not valid",
+    "minlength": "{{field}} must be at least {{requiredLength}} characters",
+    "passwordMismatch": "Passwords do not match"
   }
 }
